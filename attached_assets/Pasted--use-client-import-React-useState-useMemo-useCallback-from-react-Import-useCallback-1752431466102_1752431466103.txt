@@ -1,0 +1,136 @@
+"use client"
+
+import React, { useState, useMemo, useCallback } from 'react'; // Import useCallback
+import { motion } from 'framer-motion';
+// ... other imports remain the same
+
+// ... EstoqueStats, ProdutosTable, MovimentacoesTable, SaidaManualModal, InventarioModal components remain the same
+
+export default function EstoqueModule({ activeSection, onSectionChange }) {
+  const [searchTerm, setSearchTerm] = useState('')
+  const [filterType, setFilterType] = useState('all')
+  const [showSaidaModal, setShowSaidaModal] = useState(false)
+  const [showInventarioModal, setShowInventarioModal] = useState(false)
+  const [selectedItem, setSelectedItem] = useState(null)
+  const [loading, setLoading] = useState(false)
+
+  const estoque = useEstoque()
+  const { logAction } = useAuditLog()
+  const { executeWorkflow, getActiveWorkflows } = useWorkflow()
+  // This hook call was causing an error in the stack trace but was missing from the file.
+  // Assuming it's meant to be here and imported correctly.
+  // const { searchItems } = useData() 
+
+  const produtos = estoque.produtos.getAll()
+  const movimentacoes = estoque.movimentacoes.getAll()
+  const inventarios = estoque.inventarios.getAll()
+
+  const filteredProdutos = useMemo(() => { /* ... */ }, [produtos, searchTerm, filterType])
+  const filteredMovimentacoes = useMemo(() => { /* ... */ }, [movimentacoes, searchTerm])
+
+  const handleSaidaManual = useCallback(async (dados) => {
+    try {
+      setLoading(true)
+      await estoque.criarSaidaManual(dados)
+      setShowSaidaModal(false)
+    } catch (error) {
+      // Error is handled in the hook
+    } finally {
+      setLoading(false)
+    }
+  }, [estoque]) // Dependency on the stable 'estoque' hook object
+
+  const handleNovoInventario = useCallback(async (dados) => {
+    try {
+      setLoading(true)
+      await estoque.criarInventario(dados)
+      setShowInventarioModal(false)
+    } catch (error) {
+      // Error is handled in the hook
+    } finally {
+      setLoading(false)
+    }
+  }, [estoque]) // Dependency on the stable 'estoque' hook object
+
+  const handleExecuteStep = useCallback((workflowId, data) => {
+    // Assuming executeWorkflow is a stable function from its hook
+    executeWorkflow(workflowId, data);
+  }, [executeWorkflow]);
+
+  // Memoized handlers for modals and tables
+  const handleCloseSaidaModal = useCallback(() => setShowSaidaModal(false), []);
+  const handleCloseInventarioModal = useCallback(() => setShowInventarioModal(false), []);
+  const handleEditItem = useCallback((item) => { /* TODO: Implement edit logic */ console.log("Edit:", item) }, []);
+  const handleDeleteItem = useCallback((item) => { /* TODO: Implement delete logic */ console.log("Delete:", item) }, []);
+  const handleViewItem = useCallback((item) => { /* TODO: Implement view logic */ console.log("View:", item) }, []);
+
+  // ... (exportToExcel and other logic)
+
+  return (
+    <div className="space-y-6">
+      {/* Header */}
+      <div className="flex items-center justify-between">
+        {/* ... */}
+      </div>
+
+      {/* Estatísticas */}
+      <EstoqueStats produtos={produtos} movimentacoes={movimentacoes} />
+
+      {/* Painel de Compliance */}
+      <CompliancePanel rules={complianceRules} data={{ produtos, movimentacoes, inventarios }} />
+
+      {/* Workflows Ativos */}
+      <WorkflowSteps 
+        activeWorkflows={getActiveWorkflows('estoque')}
+        onExecuteStep={handleExecuteStep}
+      />
+
+      {/* Filtros */}
+      {/* ... */}
+
+      {/* Conteúdo Principal */}
+      <Card className="bg-white">
+        <CardHeader>
+          <CardTitle className="text-gray-800">{sectionTitle}</CardTitle>
+        </CardHeader>
+        <CardContent>
+          {/* Use memoized handlers for tables */}
+          {activeSection === 'produtos' && (
+            <ProdutosTable 
+              produtos={filteredProdutos}
+              onEdit={handleEditItem}
+              onDelete={handleDeleteItem}
+              onView={handleViewItem}
+            />
+          )}
+          {activeSection === 'movimentacoes' && (
+             <MovimentacoesTable 
+              movimentacoes={filteredMovimentacoes}
+              onEdit={handleEditItem}
+              onDelete={handleDeleteItem}
+              onView={handleViewItem}
+            />
+          )}
+        </CardContent>
+      </Card>
+
+      {/* Modais with memoized handlers */}
+      <SaidaManualModal
+        isOpen={showSaidaModal}
+        onClose={handleCloseSaidaModal}
+        onSave={handleSaidaManual}
+        produtos={produtos}
+      />
+
+      <InventarioModal
+        isOpen={showInventarioModal}
+        onClose={handleCloseInventarioModal}
+        onSave={handleNovoInventario}
+        produtos={produtos}
+      />
+    </div>
+  )
+}
+
+EstoqueModule.Sidebar = EstoqueSidebar
+EstoqueModule.defaultSection = 'produtos'

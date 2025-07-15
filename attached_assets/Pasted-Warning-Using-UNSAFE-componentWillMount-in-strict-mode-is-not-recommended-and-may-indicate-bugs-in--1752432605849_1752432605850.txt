@@ -1,0 +1,17 @@
+Warning: Using UNSAFE_componentWillMount in strict mode is not recommended and may indicate bugs in your code. See https://reactjs.org/link/unsafe-component-lifecycles for details.
+
+* Move code with side effects to componentDidMount, and set initial state in the constructor.
+
+Please update the following components: SideEffect(NullComponent2)
+Too many re-renders. React limits the number of renders to prevent an infinite loop.
+Too many re-renders. React limits the number of renders to prevent an infinite loop.
+at renderWithHooks (https://e21ce0c2-e3f9-48e2-8375-13488a72c55e-00-11a5f1rdcjgk4.worf.replit.dev:3001/node_modules/.vite/deps/chunk-GKJBSOWT.js?v=0595b7bd:11555:23)
+at mountIndeterminateComponent (https://e21ce0c2-e3f9-48e2-8375-13488a72c55e-00-11a5f1rdcjgk4.worf.replit.dev:3001/node_modules/.vite/deps/chunk-GKJBSOWT.js?v=0595b7bd:14926:21)
+at beginWork (https://e21ce0c2-e3f9-48e2-8375-13488a72c55e-00-11a5f1rdcjgk4.worf.replit.dev:3001/node_modules/.vite/deps/chunk-GKJBSOWT.js?v=0595b7bd:15914:22)
+at HTMLUnknownElement.callCallback2 (https://e21ce0c2-e3f9-48e2-8375-13488a72c55e-00-11a5f1rdcjgk4.worf.replit.dev:3001/node_modules/.vite/deps/chunk-GKJBSOWT.js?v=0595b7bd:3674:22)
+at Object.invokeGuardedCallbackDev (https://e21ce0c2-e3f9-48e2-8375-13488a72c55e-00-11a5f1rdcjgk4.worf.replit.dev:3001/node_modules/.vite/deps/chunk-GKJBSOWT.js?v=0595b7bd:3699:24)
+at invokeGuardedCallback (https://e21ce0c2-e3f9-48e2-8375-13488a72c55e-00-11a5f1rdcjgk4.worf.replit.dev:3001/node_modules/.vite/deps/chunk-GKJBSOWT.js?v=0595b7bd:3733:39)
+at beginWork$1 (https://e21ce0c2-e3f9-48e2-8375-13488a72c55e-00-11a5f1rdcjgk4.worf.replit.dev:3001/node_modules/.vite/deps/chunk-GKJBSOWT.js?v=0595b7bd:19765:15)
+at performUnitOfWork (https://e21ce0c2-e3f9-48e2-8375-13488a72c55e-00-11a5f1rdcjgk4.worf.replit.dev:3001/node_modules/.vite/deps/chunk-GKJBSOWT.js?v=0595b7bd:19198:20)
+at workLoopSync (https://e21ce0c2-e3f9-48e2-8375-13488a72c55e-00-11a5f1rdcjgk4.worf.replit.dev:3001/node_modules/.vite/deps/chunk-GKJBSOWT.js?v=0595b7bd:19137:13)
+at renderRootSync (https://e21ce0c2-e3f9-48e2-8375-13488a72c55e-00-11a5f1rdcjgk4.worf.replit.dev:3001/node_modul

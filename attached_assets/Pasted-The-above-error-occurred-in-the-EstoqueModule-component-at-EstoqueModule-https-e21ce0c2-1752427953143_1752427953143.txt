@@ -1,0 +1,31 @@
+The above error occurred in the <EstoqueModule> component:
+
+    at EstoqueModule (https://e21ce0c2-e3f9-48e2-8375-13488a72c55e-00-11a5f1rdcjgk4.worf.replit.dev:3001/src/components/modules/EstoqueModule.jsx:1367:3)
+    at main
+    at div
+    at div
+    at ModulePage (https://e21ce0c2-e3f9-48e2-8375-13488a72c55e-00-11a5f1rdcjgk4.worf.replit.dev:3001/src/pages/ModulePage.jsx:106:7)
+    at ProtectedRoute (https://e21ce0c2-e3f9-48e2-8375-13488a72c55e-00-11a5f1rdcjgk4.worf.replit.dev:3001/src/App.jsx:29:27)
+    at RenderedRoute (https://e21ce0c2-e3f9-48e2-8375-13488a72c55e-00-11a5f1rdcjgk4.worf.replit.dev:3001/node_modules/.vite/deps/react-router-dom.js?v=02ed4c0c:4088:5)
+    at Routes (https://e21ce0c2-e3f9-48e2-8375-13488a72c55e-00-11a5f1rdcjgk4.worf.replit.dev:3001/node_modules/.vite/deps/react-router-dom.js?v=02ed4c0c:4558:5)
+    at div
+    at AppContent
+    at DataProvider (https://e21ce0c2-e3f9-48e2-8375-13488a72c55e-00-11a5f1rdcjgk4.worf.replit.dev:3001/src/contexts/DataContext.jsx:30:32)
+    at AuthProvider (https://e21ce0c2-e3f9-48e2-8375-13488a72c55e-00-11a5f1rdcjgk4.worf.replit.dev:3001/src/contexts/AuthContext.jsx:21:32)
+    at App
+    at Router (https://e21ce0c2-e3f9-48e2-8375-13488a72c55e-00-11a5f1rdcjgk4.worf.replit.dev:3001/node_modules/.vite/deps/react-router-dom.js?v=02ed4c0c:4501:15)
+    at HashRouter (https://e21ce0c2-e3f9-48e2-8375-13488a72c55e-00-11a5f1rdcjgk4.worf.replit.dev:3001/node_modules/.vite/deps/react-router-dom.js?v=02ed4c0c:5283:5)
+
+Consider adding an error boundary to your tree to customize error handling behavior.
+Visit https://reactjs.org/link/error-boundaries to learn more about error boundaries.
+useData is not defined
+at EstoqueModule (https://e21ce0c2-e3f9-48e2-8375-13488a72c55e-00-11a5f1rdcjgk4.worf.replit.dev:3001/src/components/modules/EstoqueModule.jsx:1387:7)
+at renderWithHooks (https://e21ce0c2-e3f9-48e2-8375-13488a72c55e-00-11a5f1rdcjgk4.worf.replit.dev:3001/node_modules/.vite/deps/chunk-GKJBSOWT.js?v=0df098cf:11548:26)
+at mountIndeterminateComponent (https://e21ce0c2-e3f9-48e2-8375-13488a72c55e-00-11a5f1rdcjgk4.worf.replit.dev:3001/node_modules/.vite/deps/chunk-GKJBSOWT.js?v=0df098cf:14926:21)
+at beginWork (https://e21ce0c2-e3f9-48e2-8375-13488a72c55e-00-11a5f1rdcjgk4.worf.replit.dev:3001/node_modules/.vite/deps/chunk-GKJBSOWT.js?v=0df098cf:15914:22)
+at beginWork$1 (https://e21ce0c2-e3f9-48e2-8375-13488a72c55e-00-11a5f1rdcjgk4.worf.replit.dev:3001/node_modules/.vite/deps/chunk-GKJBSOWT.js?v=0df098cf:19753:22)
+at performUnitOfWork (https://e21ce0c2-e3f9-48e2-8375-13488a72c55e-00-11a5f1rdcjgk4.worf.replit.dev:3001/node_modules/.vite/deps/chunk-GKJBSOWT.js?v=0df098cf:19198:20)
+at workLoopSync (https://e21ce0c2-e3f9-48e2-8375-13488a72c55e-00-11a5f1rdcjgk4.worf.replit.dev:3001/node_modules/.vite/deps/chunk-GKJBSOWT.js?v=0df098cf:19137:13)
+at renderRootSync (https://e21ce0c2-e3f9-48e2-8375-13488a72c55e-00-11a5f1rdcjgk4.worf.replit.dev:3001/node_modules/.vite/deps/chunk-GKJBSOWT.js?v=0df098cf:19116:15)
+at recoverFromConcurrentError (https://e21ce0c2-e3f9-48e2-8375-13488a72c55e-00-11a5f1rdcjgk4.worf.replit.dev:3001/node_modules/.vite/deps/chunk-GKJBSOWT.js?v=0df098cf:18736:28)
+at performSyncWorkOnRoot (https://e21ce0c2-e3f9-48e2-8375-13488a72c55e-00-11a5f1rdcjgk4.
